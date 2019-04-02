@@ -28,3 +28,8 @@ How do i create the alien spaceships? Create a div within a div that contains a 
 #LINKS AND HELPFUL INFO:
 
 https://developer.mozilla.org/en-US/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript/Paddle_and_keyboard_controls
+
+https://www.youtube.com/watch?v=yq2au9EfeRQ
+
+https://www.dummies.com/web-design-development/site-development/how-to-include-images-on-your-web-page-with-html5-canvas/
+
