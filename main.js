@@ -4,67 +4,68 @@ canvas.height = window.innerHeight;
  
 const c = canvas.getContext("2d");
 
-let shipHeight = 35;
-let shipWidth = 95;
+const shipHeight = 55;
+const shipWidth = 100;
 let shipX = (canvas.width-shipWidth) / 2;
 
 let rightPressed = false;
 let leftPressed = false;
 
-function draw() {
-
-function drawShip() {
-    c.beginPath();
-    c.rect(shipX, canvas.height-shipHeight, shipWidth, shipHeight);
-    c.fillStyle = "white";
-    c.fill();
-    c.closePath();
-}
 
 document.addEventListener("keydown", keyDownHandler);
 document.addEventListener("keyup", keyUpHandler);
 
 function keyDownHandler(e) {
-    if(e.key == "a" || e.which == 65) {
+    if(e.key == "Right" || e.key == "ArrowRight") {
         rightPressed = true;
     }
-    else if (e.key == "d" || e.which == 68) {
+    else if (e.key == "Left" || e.key == "ArrowLeft") {
         leftPressed = true;
     }
 }
-drawShip();
 
 function keyUpHandler(e) {
-    if(e.key == "a" || e.which == 65) {
+    if(e.key == "Right" || e.key == "ArrowRight") {
         rightPressed = false;
     }
-    else if (e.key == "d" || e.which == 68) {
+    else if (e.key == "Left" || e.key == "ArrowLeft") {
         leftPressed = false;
     }
 }
-drawShip();
 
-if (rightPressed) {
-    shipX -= 7;
+function drawShip() {
+    c.beginPath();
+    c.rect(shipX, canvas.width-shipWidth, shipHeight, shipWidth);
+    c.fillStyle = "white";
+    c.fill();
+    c.closePath();
 }
-else if (leftPressed) {
-    shipX += 7;
+
+function draw() {
+    c.clearRect(0, 0, canvas.width, canvas.height);
+    drawShip();
+    
+    if(rightPressed && shipX < canvas.width-shipWidth) {
+        shipX += 7;
+    }
+    else if(leftPressed && shipX > 0) {
+        shipX -= 7;
+    }
 }
-drawShip();
-}
-setInterval(draw, 10);
+setInterval(draw, 15);
 
 
-function drawCirc() {
+
+
+
+/*function drawCirc() {
     c.beginPath();
     c.arc(300, 400, 10, 0, Math.PI*2);
     c.fillStyle = "white";
     c.fill();
     c.closePath();
 }
-setInterval(drawCirc, 10);
-
-
+setInterval(drawCirc, 10);*/
 
 
 //rectangle
