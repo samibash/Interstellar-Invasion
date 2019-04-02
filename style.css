@@ -1,0 +1,13 @@
+body {
+    margin: 0;
+}
+.container {
+    display: flex;
+    justify-content: center;
+}
+#tutorial {
+    border: 1px solid red;
+}
+.header {
+    padding: 20px 20px;
+}
