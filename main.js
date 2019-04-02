@@ -4,58 +4,67 @@ canvas.height = window.innerHeight;
  
 const c = canvas.getContext("2d");
 
-const shipHeight = 35;
-const shipWidth = 95;
-const shipX = (canvas.width-shipWidth) / 2;
+let shipHeight = 35;
+let shipWidth = 95;
+let shipX = (canvas.width-shipWidth) / 2;
 
 let rightPressed = false;
 let leftPressed = false;
 
+function draw() {
+
 function drawShip() {
     c.beginPath();
     c.rect(shipX, canvas.height-shipHeight, shipWidth, shipHeight);
-    c.fillStyle = "white"
+    c.fillStyle = "white";
     c.fill();
     c.closePath();
 }
 
-document.addEventListener("keydown", keyDownHandler, false);
-document.addEventListener("keyup", keyUpHandler, false);
+document.addEventListener("keydown", keyDownHandler);
+document.addEventListener("keyup", keyUpHandler);
 
 function keyDownHandler(e) {
-    e.preventDefault();
     if(e.key == "a" || e.which == 65) {
         rightPressed = true;
     }
     else if (e.key == "d" || e.which == 68) {
         leftPressed = true;
     }
-    drawShip();
 }
+drawShip();
 
 function keyUpHandler(e) {
-    e.preventDefault();
     if(e.key == "a" || e.which == 65) {
         rightPressed = false;
     }
     else if (e.key == "d" || e.which == 68) {
         leftPressed = false;
     }
-    drawShip();
 }
+drawShip();
+
+if (rightPressed) {
+    shipX -= 7;
+}
+else if (leftPressed) {
+    shipX += 7;
+}
+drawShip();
+}
+setInterval(draw, 10);
 
 
-/*const x = canvas.width/2;
-const y = canvas.height-30;
-
-function drawSquare() {
+function drawCirc() {
     c.beginPath();
-    c.arc(x, y, 10, 0, Math.PI*2);
+    c.arc(300, 400, 10, 0, Math.PI*2);
     c.fillStyle = "white";
     c.fill();
     c.closePath();
 }
-setInterval(drawSquare, 10);*/
+setInterval(drawCirc, 10);
+
+
 
 
 //rectangle
