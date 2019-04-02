@@ -5,9 +5,7 @@ body {
     display: flex;
     justify-content: center;
 }
-#tutorial {
+#myCanvas {
     border: 1px solid red;
-}
-.header {
-    padding: 20px 20px;
+    background-color: black;
 }
