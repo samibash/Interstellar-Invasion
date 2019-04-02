@@ -23,3 +23,8 @@ POTENTIAL SOLUTIONS:
 
 Psuedocoding everything. Breaking down macro level problems like, i want a projectile to shoot from my spaceship into the alien spaceships, into smaller more manageable ones like, what makes a projectile? a sprite image. How do i create a sprite image? I create or search an image of a “missile” that has multiple images of itself in a single file.
 How do i create the alien spaceships? Create a div within a div that contains a sprite image of alien spaceships.
+
+
+#Links and helpful information:
+
+https://developer.mozilla.org/en-US/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript/Paddle_and_keyboard_controls
