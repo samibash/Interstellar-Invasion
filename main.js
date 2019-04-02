@@ -35,16 +35,26 @@ function keyUpHandler(e) {
 
 function drawShip() {
     c.beginPath();
-    c.rect(shipX, canvas.width-shipWidth, shipHeight, shipWidth);
+    c.rect(shipX, canvas.height-shipHeight, shipWidth, shipHeight);
     c.fillStyle = "white";
     c.fill();
     c.closePath();
 }
 
+function drawAliens() {
+    let alienimg2 = document.getElementById("alienImg2");
+    c.drawImage(alienimg2, 10, 10, 70, 50);
+    let image2 = new Image();
+    image2.src = "http://3.bp.blogspot.com/_qqEYtDgH8do/TBCw189tsfI/AAAAAAAAAJ8/45wuZ-ylwQY/s1600/spaceinvaders.jpg";
+    c.drawImage(image2, 600, 100, 70, 50);
+    c.drawImage(image2, 100, 100, 70, 50);
+    } 
+
 function draw() {
     c.clearRect(0, 0, canvas.width, canvas.height);
     drawShip();
-    
+    drawAliens();
+
     if(rightPressed && shipX < canvas.width-shipWidth) {
         shipX += 7;
     }
