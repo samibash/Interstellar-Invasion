@@ -4,41 +4,18 @@ const canvas = document.getElementById("myCanvas");
 //making the width of the game canvas as wide as the computer screen.
 //and height adjusted to the header, so all could fit on page.
 canvas.width = window.innerWidth;
-canvas.height = 525;
+canvas.height = 575;
  
 //created a variable for the canvas' "paintbrush".
 const c = canvas.getContext("2d");
 
-
+//created variables for the height and width of the ship.
 const shipHeight = 45;
 const shipWidth = 100;
-let shipX = (canvas.width-shipWidth) / 2;
+//created a variable for the user ship to be on the center of the page.
+let shipX = (canvas.width - shipWidth) / 2;
 
-let rightPressed = false;
-let leftPressed = false;
-
-
-document.addEventListener("keydown", keyDownHandler);
-document.addEventListener("keyup", keyUpHandler);
-
-function keyDownHandler(e) {
-    if(e.key == "Right" || e.key == "ArrowRight") {
-        rightPressed = true;
-    }
-    else if (e.key == "Left" || e.key == "ArrowLeft") {
-        leftPressed = true;
-    }
-}
-
-function keyUpHandler(e) {
-    if(e.key == "Right" || e.key == "ArrowRight") {
-        rightPressed = false;
-    }
-    else if (e.key == "Left" || e.key == "ArrowLeft") {
-        leftPressed = false;
-    }
-}
-
+//function for drawing user ship that begins in the center of page.
 function drawShip() {
     c.beginPath();
     c.rect(shipX, canvas.height-shipHeight, shipWidth, shipHeight);
@@ -47,22 +24,29 @@ function drawShip() {
     c.closePath();
 }
 
+//function for drawing & randomly moving those pesky aliens from left to right, then back again.
 let alienimg2 = document.getElementById("alienImg2");
 let x1 = 100;
 let x2 = 550;
 let x3 = 1000;
-
-function drawAliens() {
+let x4 = 325;
+let x5 = 775;
+function drawAliens(max) {
     c.drawImage(alienimg2, x1, 100, 70, 50);
-    x1+=1
+    x1+=1 * Math.random() * Math.floor(max);
     c.drawImage(alienimg2, x2, 100, 70, 50);
-    x2+=1
+    x2+=1 * Math.random() * Math.floor(max);
     c.drawImage(alienimg2, x3, 100, 70, 50);
-    x3+=1
+    x3+=1 * Math.random() * Math.floor(max);
+    c.drawImage(alienimg2, x4, 100, 70, 50);
+    x4+=1 * Math.random() * Math.floor(max);
+    c.drawImage(alienimg2, x5, 100, 70, 50);
+    x5+=1 * Math.random() * Math.floor(max);
 }
 
-let y4 = 600;
-
+//function for drawing my circular projectile that begins at the ship. However, I haven't solved how
+//to create an independent trajectory for itself -- keeps following the ship.
+let y4 = 500;
 function drawProjectile() {
     c.beginPath();
     c.arc(shipX, y4, 5, 0, Math.PI*2);
@@ -71,30 +55,52 @@ function drawProjectile() {
     c.fill();
     c.closePath();
 }
-drawProjectile();
 
+//created eventlisteners for the left and right arrow keys.
+//these are the conditions. the actual command for movement is in the 
+//draw function near the bottom.
+let rightPressed = false;
+let leftPressed = false;
+document.addEventListener("keydown", keyDownHandler);
+document.addEventListener("keyup", keyUpHandler);
+function keyDownHandler(e) {
+    if(e.key == "ArrowRight") {
+        rightPressed = true;
+    }
+    else if (e.key == "ArrowLeft") {
+        leftPressed = true;
+    }
+}
+function keyUpHandler(e) {
+    if(e.key == "ArrowRight") {
+        rightPressed = false;
+    }
+    else if (e.key == "ArrowLeft") {
+        leftPressed = false;
+    }
+}
 
+//created an eventlistener for the spacebar. These are the conditions
+//for the projectile to be called in the draw function below.
 let spacePressed = false;
-
 document.addEventListener("keypress", keyPressSpacebar);
-
 function keyPressSpacebar(e) {
-    if (e.key == "Space character" || e.code == "Space") {
+    if (e.code === "Space") {
         spacePressed = true;
     }
 }
 
-
-
+//the draw function that calls all the other functions in my code:
+//(drawShip; drawAliens; and drawProjectile).
+//below that are the conditions for the movement of the alien ships & user.
 function draw() {
     c.clearRect(0, 0, canvas.width, canvas.height);
     drawShip();
-    drawAliens();
+    drawAliens(1.5);
 
-    if (spacePressed == true) {
+    if (spacePressed === true) {
         drawProjectile();
     }
-
     if (x1 >= 200) {
         x1 = 100;
     }
@@ -104,12 +110,17 @@ function draw() {
     if (x3 >= 1100) {
         x3 = 1000;
     }
-
+    if (x4 >= 425) {
+        x4 = 325;
+    }
+    if (x5 >= 875) {
+        x5 = 775;
+    }
     if(rightPressed && shipX < canvas.width-shipWidth) {
-        shipX += 20;
+        shipX += 5;
     }
     else if(leftPressed && shipX > 0) {
-        shipX -= 20;
+        shipX -= 5;
     }
 }
 setInterval(draw, 10);

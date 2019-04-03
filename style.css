@@ -22,6 +22,8 @@ h1 {
     color: #1dcf06;
     font-family: 'Monofett', cursive;
     text-align: center;
+    text-shadow: 5px 2px 3px red, 0 0 1em blue;
+    margin: 0;
 }
 h1:hover {
     transform: rotate(-180deg)
