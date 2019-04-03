@@ -68,8 +68,7 @@ function drawProjectile() {
 
 let spacePressed = false;
 
-document.addEventListener("keydown", keyDownSpacebar);
-
+document.addEventListener("keypress", keyDownSpacebar);
 function keyDownSpacebar(e) {
     if(e.key == "Space character" || e.code == "Space") {
         spacePressed = true;
