@@ -41,15 +41,28 @@ function drawShip() {
     c.closePath();
 }
 
+let alienimg2 = document.getElementById("alienImg2");
+let x1 = 150;
+let x2 = 600;
+let x3 = 1050;
+
 function drawAliens() {
-    let alienimg2 = document.getElementById("alienImg2");
-    c.drawImage(alienimg2, 10, 10, 70, 50);
-    let image2 = new Image();
-    image2.src = "http://3.bp.blogspot.com/_qqEYtDgH8do/TBCw189tsfI/AAAAAAAAAJ8/45wuZ-ylwQY/s1600/spaceinvaders.jpg";
-    c.drawImage(image2, 600, 100, 70, 50);
-    c.drawImage(image2, 100, 100, 70, 50);
-    c.drawImage(image2, 1000, 100, 70, 50);
-    } 
+    c.drawImage(alienimg2, x1, 100, 70, 50);
+    x1+=2
+    if (x1 > 300) {
+
+    }
+    c.drawImage(alienimg2, x2, 100, 70, 50);
+    x2+=2
+    if (x2 > 750) {
+
+    }
+    c.drawImage(alienimg2, x3, 100, 70, 50);
+    x3+=2
+    if (x3 > 1200) {
+
+    }
+}
 
 function draw() {
     c.clearRect(0, 0, canvas.width, canvas.height);
@@ -57,13 +70,31 @@ function draw() {
     drawAliens();
 
     if(rightPressed && shipX < canvas.width-shipWidth) {
-        shipX += 7;
+        shipX += 20;
     }
     else if(leftPressed && shipX > 0) {
-        shipX -= 7;
+        shipX -= 20;
     }
 }
-setInterval(draw, 15);
+setInterval(draw, 10);
+
+
+
+
+
+
+
+
+
+
+
+
+//a looping function. 
+
+//the clearRect makes it so that everytime this function loops, the canvas erases itself. So that
+//you wont have an object making skid marks of itself across the screen.
+
+//this is the beginning of the content of what you're trying to animate.
 
 
 
@@ -119,21 +150,5 @@ for (let i = 0; i < 10; i++) {
 
 let x = 10;
 let y = 20;
-
-function animate() {
-    requestAnimationFrame(animate);
-    c.clearRect(0, 0, innerWidth, innerHeight);
-    c.beginPath();    
-    c.fillStyle = "rgba(255, 0, 0, 0.1"
-    c.fillRect(x, y, 150, 150);
-    c.fillStyle = "rgba(0, 255, 0, 0.1"
-    c.fillRect(x, y, 100, 100);
-    c.fillStyle = "rgba(0, 0, 255, 0.1"
-    c.fillRect(x, y, 100, 100);
-
-    x += 1;
-    y += 1;
-}
-
-animate();*/
+*/
 
