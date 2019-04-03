@@ -25,7 +25,7 @@ Psuedocoding everything. Breaking down macro level problems like, i want a proje
 How do i create the alien spaceships? Create a div within a div that contains a sprite image of alien spaceships.
 
 
-#LINKS AND HELPFUL INFO:
+#LINKS AND HELPFUL INFO I USED:
 
 https://developer.mozilla.org/en-US/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript/Paddle_and_keyboard_controls
 
