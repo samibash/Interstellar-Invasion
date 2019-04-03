@@ -42,9 +42,9 @@ function drawShip() {
 }
 
 let alienimg2 = document.getElementById("alienImg2");
-let x1 = 150;
-let x2 = 600;
-let x3 = 1050;
+let x1 = 100;
+let x2 = 550;
+let x3 = 1000;
 
 function drawAliens() {
     c.drawImage(alienimg2, x1, 100, 70, 50);
@@ -55,10 +55,41 @@ function drawAliens() {
     x3+=1
 }
 
+let y4 = 600;
+
+function drawProjectile() {
+    c.beginPath();
+    c.arc(600, y4, 5, 0, Math.PI*2);
+    y4--;
+    c.fillStyle = "white";
+    c.fill();
+    c.closePath();
+}
+
+let spacePressed = false;
+
+document.addEventListener("keydown", keyDownSpacebar);
+
+function keyDownSpacebar(e) {
+    if(e.key == "Space character" || e.code == "Space") {
+        spacePressed = true;
+    } else {
+        spacePressed = false;
+    }
+}
+
+
+
+
+
 function draw() {
     c.clearRect(0, 0, canvas.width, canvas.height);
     drawShip();
     drawAliens();
+
+    if (spacePressed === true) {
+        drawProjectile();
+    }
 
     if (x1 >= 200) {
         x1 = 100;
