@@ -48,26 +48,27 @@ let x3 = 1050;
 
 function drawAliens() {
     c.drawImage(alienimg2, x1, 100, 70, 50);
-    x1+=2
-    if (x1 > 300) {
-
-    }
+    x1+=1
     c.drawImage(alienimg2, x2, 100, 70, 50);
-    x2+=2
-    if (x2 > 750) {
-
-    }
+    x2+=1
     c.drawImage(alienimg2, x3, 100, 70, 50);
-    x3+=2
-    if (x3 > 1200) {
-
-    }
+    x3+=1
 }
 
 function draw() {
     c.clearRect(0, 0, canvas.width, canvas.height);
     drawShip();
     drawAliens();
+
+    if (x1 >= 200) {
+        x1 = 100;
+    }
+    if (x2 >= 650) {
+        x2 = 550;
+    }
+    if (x3 >= 1100) {
+        x3 = 1000;
+    }
 
     if(rightPressed && shipX < canvas.width-shipWidth) {
         shipX += 20;
