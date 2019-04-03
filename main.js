@@ -1,10 +1,16 @@
+//Getting the canvas Id through the DOM, naming the variable "canvas".
 const canvas = document.getElementById("myCanvas");
+
+//making the width of the game canvas as wide as the computer screen.
+//and height adjusted to the header, so all could fit on page.
 canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+canvas.height = 525;
  
+//created a variable for the canvas' "paintbrush".
 const c = canvas.getContext("2d");
 
-const shipHeight = 55;
+
+const shipHeight = 45;
 const shipWidth = 100;
 let shipX = (canvas.width-shipWidth) / 2;
 
@@ -59,25 +65,24 @@ let y4 = 600;
 
 function drawProjectile() {
     c.beginPath();
-    c.arc(600, y4, 5, 0, Math.PI*2);
+    c.arc(shipX, y4, 5, 0, Math.PI*2);
     y4--;
     c.fillStyle = "white";
     c.fill();
     c.closePath();
 }
+drawProjectile();
+
 
 let spacePressed = false;
 
-document.addEventListener("keypress", keyDownSpacebar);
-function keyDownSpacebar(e) {
-    if(e.key == "Space character" || e.code == "Space") {
+document.addEventListener("keypress", keyPressSpacebar);
+
+function keyPressSpacebar(e) {
+    if (e.key == "Space character" || e.code == "Space") {
         spacePressed = true;
-    } else {
-        spacePressed = false;
     }
 }
-
-
 
 
 
@@ -86,7 +91,7 @@ function draw() {
     drawShip();
     drawAliens();
 
-    if (spacePressed === true) {
+    if (spacePressed == true) {
         drawProjectile();
     }
 
