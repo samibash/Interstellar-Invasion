@@ -1,11 +1,29 @@
 //Getting the canvas Id through the DOM, naming the variable "canvas".
-const canvas = document.getElementById("myCanvas");
+           //const canvas = document.getElementById("myCanvas");
+        let alien 
+        let player1 
+        let projectiles
 
+        let spaceshipImage
+        let alienImage
+        let missleImage
+
+function preload() {
+    spaceshipImage = loadImage('https://image.flaticon.com/icons/png/512/139/139714.png');
+    missleImage = loadImage('http://www.public.asu.edu/~lbreaux/git417/images/ball-sprite.png');
+    alienImage = loadImage('https://i.imgur.com/mS0hGaS.png');
+}
+
+console.log(spaceshipImage);
+
+
+
+/*
 //making the width of the game canvas as wide as the computer screen.
 //and height adjusted to the header, so all could fit on page.
 canvas.width = window.innerWidth;
 canvas.height = 575;
- 
+
 //created a variable for the canvas' "paintbrush".
 const c = canvas.getContext("2d");
 
@@ -31,6 +49,7 @@ let x2 = 550;
 let x3 = 1000;
 let x4 = 325;
 let x5 = 775;
+
 function drawAliens(max) {
     c.drawImage(alienimg2, x1, 100, 70, 50);
     x1+=1 * Math.random() * Math.floor(max);
@@ -98,7 +117,7 @@ function draw() {
 //So that you wont have an object making skid marks of itself across the screen.
     c.clearRect(0, 0, canvas.width, canvas.height);
     drawShip();
-    drawAliens(1.5);
+    drawAliens(1);
     if(spacePressed === true) {
         drawProjectile();
     }
@@ -124,4 +143,4 @@ function draw() {
         shipX -= 5;
     }
 }
-setInterval(draw, 10);
+setInterval(draw, 10);*/
