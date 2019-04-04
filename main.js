@@ -1,15 +1,160 @@
 //Getting several canvas Ids through the DOM, naming variables for the background; aliens, and the ship/missle.
-const canvas = document.getElementById("myCanvas");
-const aliens = document.getElementById("aliens");
-const shipAndMissle = document.getElementById("ship-and-missle");
+function init() {
 
+    const canvas = document.getElementById("myCanvas");
+    c1 = canvas.getContext("2d");
+
+    const shipAndMissle = document.getElementById("ship-and-missle");
+    c2 = shipAndMissle.getContext("2d");
+
+    const aliens = document.getElementById("aliens");
+    c3 = aliens.getContext("2d");
+
+    setInterval(drawAll, 10);
+    }
+
+function drawAll() {
+    drawShip();
+    drawAliens();
+}
+
+//ship function
+function drawShip() {
+    c2.clearRect(0, 0, canvas.width, canvas.height);
+    c2.beginPath();
+    c2.rect(shipX, canvas.height-shipHeight, shipWidth, shipHeight);
+    c2.fillStyle = "white";
+    c2.fill();
+    c2.closePath();
+
+    //projectile 
+    let y4 = 500;
+    c2.beginPath();
+    c2.arc(shipX, y4, 5, 0, Math.PI*2);
+    y4--;
+    c2.fillStyle = "white";
+    c2.fill();
+    c2.closePath();
+}
+
+//alien spaceship function
+function drawAliens(max) {
+    c3.clearRect(0, 0, canvas.width, canvas.height);
+    let alienimg2 = document.getElementById("alienImg2");
+    let x1 = 100;
+    let x2 = 550;
+    let x3 = 1000;
+    let x4 = 325;
+    let x5 = 775;
+    c3.drawImage(alienimg2, x1, 100, 70, 50);
+    x1+=1 * Math.random() * Math.floor(max);
+    c3.drawImage(alienimg2, x2, 100, 70, 50);
+    x2+=1 * Math.random() * Math.floor(max);
+    c3.drawImage(alienimg2, x3, 100, 70, 50);
+    x3+=1 * Math.random() * Math.floor(max);
+    c3.drawImage(alienimg2, x4, 100, 70, 50);
+    x4+=1 * Math.random() * Math.floor(max);
+    c3.drawImage(alienimg2, x5, 100, 70, 50);
+    x5+=1 * Math.random() * Math.floor(max);
+    if (x1 >= 200) {
+        x1 = 100;
+    }
+    if (x2 >= 650) {
+        x2 = 550;
+    }
+    if (x3 >= 1100) {
+        x3 = 1000;
+    }
+    if (x4 >= 425) {
+        x4 = 325;
+    }
+    if (x5 >= 875) {
+        x5 = 775;
+    }
+    if(rightButton && shipX < canvas.width-shipWidth) {
+        shipX += 5;
+    }
+    else if(leftButton && shipX > 0) {
+        shipX -= 5;
+    }
+}
+
+const canvas = document.getElementById("myCanvas");
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+const shipHeight = 45;
+const shipWidth = 100;
+//created a variable for the user ship to be on the center of the page.
+let shipX = (canvas.width - shipWidth) / 2;
+let rightButton = false;
+let leftButton = false;
+document.addEventListener("keydown", keyDownHandler);
+document.addEventListener("keyup", keyUpHandler);
+function keyDownHandler(e) {
+    if(e.key == "ArrowRight") {
+        rightButton = true;
+    }
+    else if (e.key == "ArrowLeft") {
+        leftButton = true;
+    }
+}
+function keyUpHandler(e) {
+    if(e.key == "ArrowRight") {
+        rightButton = false;
+    }
+    else if (e.key == "ArrowLeft") {
+        leftButton = false;
+    }
+}
+
+
+let spacePressed = false;
+document.addEventListener("keypress", keyPressSpacebar);
+function keyPressSpacebar(e) {
+    if (e.code === "Space") {
+        spacePressed = true;
+    }
+}
+
+
+if(spacePressed === true) {
+    drawProjectile();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 //making the width of the game canvas as wide as the computer screen.
 //and height adjusted to the header, so all could fit on page.
 canvas.width = window.innerWidth;
-canvas.height = 575;
- 
+canvas.height = window.innerHeight;
+
 //created a variable for the canvas' "paintbrush".
-const c = canvas.getContext("2d");
+                //const c = canvas.getContext("2d");
+
 
 //created variables for the height and width of the ship.
 const shipHeight = 45;
@@ -128,4 +273,4 @@ function draw() {
 }
 setInterval(draw, 10);
 
-
+*/

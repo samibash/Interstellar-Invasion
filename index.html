@@ -14,21 +14,18 @@
         <div class="container">
 
             <!--Background-->
-            <canvas id="myCanvas">
-            </canvas>
-    
-            <canvas id="layer1" style="z-index: 1; position:absolute; left:0px; top:0px;" height="300px" width="400">
+            <canvas id="myCanvas" style="z-index: 1; position:absolute; left:0px; top:0px;" height="300px" width="400">
             </canvas>
 
-            <!-- enemy ships & projectile-->
-            <canvas id="aliens" width="600" height="360">
-            </canvas>
-    
             <!-- The canvas for the ship -->
-            <canvas id="ship-and-missle" width="600" height="360">
+            <canvas id="ship-and-missle" style="z-index: 2; position:absolute; left:0px; top:0px;" height="662px" width="1280">
             </canvas>
-            
+
+            <!-- enemy ships -->
+            <canvas id="aliens" style="z-index: 3; position:absolute; left:0px; top:0px;" height="350px" width="1280">
             <img id="alienImg2" src="http://3.bp.blogspot.com/_qqEYtDgH8do/TBCw189tsfI/AAAAAAAAAJ8/45wuZ-ylwQY/s1600/spaceinvaders.jpg" alt="space invaders alien ship"/>
+            </canvas>
+                        
             <img id="background" src="https://www.tumomo.com/servicios/wp-content/uploads/2015/10/star_background_by_tenshilove-d8f2jac.jpg" alt="space-background"/>
             <img class="projectile" src="http://www.public.asu.edu/~lbreaux/git417/images/ball-sprite.png" alt="projectile image"/>
         </div>
