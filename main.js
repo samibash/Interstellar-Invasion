@@ -1,6 +1,4 @@
 //Getting several canvas Ids through the DOM, naming variables for the background; aliens, and the ship/missle.
-function init() {
-
     const canvas = document.getElementById("myCanvas");
     c1 = canvas.getContext("2d");
 
@@ -10,13 +8,37 @@ function init() {
     const aliens = document.getElementById("aliens");
     c3 = aliens.getContext("2d");
 
-    setInterval(drawAll, 10);
-    }
 
 function drawAll() {
-    drawShip();
-    drawAliens();
-}
+      c1.clearRect(0, 0, canvas.width, canvas.height);
+        drawShip();
+        drawAliens(1.5);
+        if(spacePressed === true) {
+            drawProjectile();
+        }
+        if (x1 >= 200) {
+            x1 = 100;
+        }
+        if (x2 >= 650) {
+            x2 = 550;
+        }
+        if (x3 >= 1100) {
+            x3 = 1000;
+        }
+        if (x4 >= 425) {
+            x4 = 325;
+        }
+        if (x5 >= 875) {
+            x5 = 775;
+        }
+        if(rightButton && shipX < canvas.width-shipWidth) {
+            shipX += 5;
+        }
+        else if(leftButton && shipX > 0) {
+            shipX -= 5;
+        }
+    }
+    setInterval(drawAll, 10);
 
 //ship function
 function drawShip() {
@@ -56,27 +78,6 @@ function drawAliens(max) {
     x4+=1 * Math.random() * Math.floor(max);
     c3.drawImage(alienimg2, x5, 100, 70, 50);
     x5+=1 * Math.random() * Math.floor(max);
-    if (x1 >= 200) {
-        x1 = 100;
-    }
-    if (x2 >= 650) {
-        x2 = 550;
-    }
-    if (x3 >= 1100) {
-        x3 = 1000;
-    }
-    if (x4 >= 425) {
-        x4 = 325;
-    }
-    if (x5 >= 875) {
-        x5 = 775;
-    }
-    if(rightButton && shipX < canvas.width-shipWidth) {
-        shipX += 5;
-    }
-    else if(leftButton && shipX > 0) {
-        shipX -= 5;
-    }
 }
 
 const canvas = document.getElementById("myCanvas");
