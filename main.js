@@ -1,5 +1,7 @@
-//Getting the canvas Id through the DOM, naming the variable "canvas".
+//Getting several canvas Ids through the DOM, naming variables for the background; aliens, and the ship/missle.
 const canvas = document.getElementById("myCanvas");
+const aliens = document.getElementById("aliens");
+const shipAndMissle = document.getElementById("ship-and-missle");
 
 //making the width of the game canvas as wide as the computer screen.
 //and height adjusted to the header, so all could fit on page.
@@ -125,3 +127,5 @@ function draw() {
     }
 }
 setInterval(draw, 10);
+
+

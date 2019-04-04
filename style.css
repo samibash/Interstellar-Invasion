@@ -6,13 +6,29 @@ body {
     background-color: black;
 }
 .container {
-    display: flex;
-    justify-content: center;
+    
 }
+
 #myCanvas {
     border: 1px solid #1dcf06;
     background-color: black;
+    position: absolute;
+    left: 0px;
+    top: 0px;
 }
+#aliens {
+    background-color: #1114c5;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+#ship-and-missle {
+    background-color: brown;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+
 img {
     display: none;
     position: relative;
