@@ -4,7 +4,7 @@ const canvas = document.getElementById("myCanvas");
 //making the width of the game canvas as wide as the computer screen.
 //and height adjusted to the header, so all could fit on page.
 canvas.width = window.innerWidth;
-canvas.height = 575;
+canvas.height = 605;
  
 //created a variable for the canvas' "paintbrush".
 const c = canvas.getContext("2d");
