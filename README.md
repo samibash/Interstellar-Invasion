@@ -35,6 +35,8 @@ https://www.youtube.com/watch?v=yq2au9EfeRQ
 
 https://www.dummies.com/web-design-development/site-development/how-to-include-images-on-your-web-page-with-html5-canvas/
 
+## WIREFRAME:
+![IMG_4883](https://user-images.githubusercontent.com/45145737/56762745-9081cd00-676e-11e9-82a3-88829d452b20.jpeg)
 
 
 ## DEPLOYMENT:
